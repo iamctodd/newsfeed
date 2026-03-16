@@ -1,0 +1,164 @@
+I'm building a quick demo news feed app in Figma Make that will be published directly 
+from Figma (using Figma's Publish feature). This is a 10-minute prototype to showcase 
+the concept.
+
+STACK:
+- Frontend: HTML/React in Figma Make (published)
+- Backend: Supabase (just for sample data)
+- No authentication, no Vercel, no complex features—just beautiful, fast
+
+=== REAL DATA FROM PUBLIC NEWS API ===
+
+This app fetches REAL articles from TheNewsAPI.com (free, no API key needed).
+
+Just fetch and display real news articles.
+
+=== WHAT TO BUILD ===
+
+A single-page news feed app with:
+
+1. HEADER
+   - Logo "NewsHub" (left)
+   - Search bar (center) 
+   - Dark/light toggle icon (right)
+
+2. HERO SECTION
+   - "Latest News" heading
+   - Brief tagline
+
+3. NEWS FEED
+   - Display articles in a grid (3 columns on desktop, 1 on mobile)
+   - Each article card shows:
+     * Image (16:9 aspect ratio)
+     * Category badge (colored)
+     * Title (2 lines)
+     * Description preview (2 lines)
+     * Date published
+   - Cards have hover effects (slight scale, shadow)
+
+4. SEARCH
+   - Search bar filters articles by title in real-time
+   - Show "X results found" message
+
+5. DARK MODE
+   - Toggle switches dark/light theme
+   - Affects header, background, text colors
+   - Uses localStorage to persist choice
+
+6. RESPONSIVE
+   - Mobile (375px): 1 column, full-width cards
+   - Tablet (768px): 2 columns
+   - Desktop (1024px+): 3 columns
+
+=== DESIGN ===
+
+Color Palette:
+- Primary: #0066FF (blue)
+- Background: #FFFFFF (light) / #1a1a1a (dark)
+- Text: #333333 (light) / #EEEEEE (dark)
+- Accent: #F0F0F0 (light) / #2a2a2a (dark)
+
+Typography:
+- Headings: Bold, larger
+- Body: Regular, readable
+- Small: Dates, categories
+
+Spacing:
+- Padding: 16px on mobile, 24px on desktop
+- Gap between cards: 16px
+- Header padding: 16px vertical, 20px horizontal
+
+=== CODE STRUCTURE ===
+
+You're building a React component in Figma Make that:
+
+1. Fetches REAL articles from a public news API on page load
+2. Displays them in a responsive grid
+3. Handles search filtering
+4. Toggles dark/light mode
+5. Stores theme preference in localStorage
+
+No backend setup, no authentication, no complexity - just ONE beautiful component.
+
+=== REAL DATA FROM PUBLIC NEWS API ===
+
+Use a free public news API (no setup required):
+```javascript
+async function fetchArticles() {
+  try {
+    // Using TheNewsAPI.com - completely free, real articles, real images
+    const response = await fetch(
+      'https://api.thenewsapi.com/v1/news/top?language=en&limit=20'
+    )
+    
+    const data = await response.json()
+    
+    return data.data.map(article => ({
+      id: article.uuid,
+      title: article.title,
+      description: article.description || 'No description available',
+      image_url: article.image_url || 'https://via.placeholder.com/400x300?text=No+Image',
+      category: article.category || 'News',
+      published_at: article.published_at
+    }))
+  } catch (error) {
+    console.error('Error fetching articles:', error)
+    return []
+  }
+}
+```
+
+That's it. Real articles from TheNewsAPI.com, no API key required, no setup needed.
+
+=== REACT HOOKS ===
+
+Use:
+- useState for articles, search query, dark mode
+- useEffect to fetch articles on mount
+- No context, no routing, no Redux
+
+=== STYLING ===
+
+- Tailwind CSS classes (built into Figma Make)
+- Responsive classes: sm:, md:, lg:
+- Dark mode: dark: prefix
+- Smooth transitions: transition duration-300
+
+=== WHAT TO GENERATE ===
+
+A complete, working React component that:
+1. Fetches from Supabase immediately
+2. Displays 10-15 articles beautifully
+3. Allows search filtering
+4. Toggles dark/light mode
+5. Is fully responsive
+6. Has no errors in console
+7. Can be published directly from Figma Make
+
+=== FILE TO CREATE ===
+
+Single component called NewsApp.jsx that exports a React component.
+This is ALL you need for Figma Make to publish.
+
+=== DEPLOYMENT ===
+
+Once generated:
+1. Copy the component code from Figma Make
+2. Click "Publish"
+3. Get a public URL
+4. Share the link - DONE
+
+No Vercel, no build steps, no deployment complexity.
+
+=== KEY REQUIREMENTS ===
+
+✅ Works immediately (data loads)
+✅ Beautiful UI (modern design)
+✅ Responsive (works on all screen sizes)
+✅ Fast (no complex logic, just data display)
+✅ Dark mode (toggle works, persists)
+✅ Search works (real-time filtering)
+✅ No errors (clean console)
+✅ Can be published from Figma in ONE CLICK
+
+This is a 10-minute demo, so keep it simple but impressive.
