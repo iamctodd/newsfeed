@@ -159,5 +159,7 @@ Once generated:
 ✅ Search works (real-time filtering)
 
 ✅ A user can sign up and login (backend handled by Supabase)
+
 ✅ No errors (clean console)
+
 ✅ Can be published from Figma in ONE CLICK
