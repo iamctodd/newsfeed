@@ -134,7 +134,7 @@ A complete, working React component that:
 === FILE TO CREATE ===
 
 Single component called NewsApp.jsx that exports a React component.
-This is ALL you need for Figma Make to publish.
+This can be easily published by Figma Make. 
 
 === DEPLOYMENT ===
 
